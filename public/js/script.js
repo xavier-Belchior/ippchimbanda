@@ -17,14 +17,14 @@ window.onscroll = () => {
                 document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
             });
 
-            //Active section for animation on scroll
-            sec.classList.add('show-animate'); 
+        //     //Active section for animation on scroll
+        //     sec.classList.add('show-animate'); 
        
         }
-        // if want use animation that repeats on scroll use this
-        else{
-        	sec.classList.remove('show-animate'); 
-        }
+        // // if want use animation that repeats on scroll use this
+        // else{
+        // 	sec.classList.remove('show-animate'); 
+        // }
 
 
     });

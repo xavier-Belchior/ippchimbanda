@@ -703,8 +703,8 @@ header .nagation a:nth-child(6){
     transform: translate(0, 0) rotate(0);
     border-top: .2rem solid var(--bg-button);
     border-bottom: .2rem solid var(--bg-button);
-    border-right: .2rem solid var(--color-button);
-    border-left: .2rem solid var(--color-button);
+    border-right: .2rem solid transparent;
+    border-left: .2rem solid transparent;
     animation: cardsRotion 8s linear infinite;
 }
 .card h3{
@@ -901,7 +901,7 @@ header .nagation a:nth-child(6){
     display: flex;
     flex-direction: column;
     padding:5rem 9% 2rem;
-    background: var(--color-button);
+    background: var(--bg-footer);
     gap: 4rem;
 }
 .footer .social-media{
@@ -915,7 +915,7 @@ header .nagation a:nth-child(6){
 }
 .social-media p{
     position: relative;
-    color: var(--bg-footer);
+    color: var(--color-text-secundary);
     font-size: 1.2rem;
     letter-spacing:0.2rem;
     text-align: center;
@@ -951,7 +951,7 @@ header .nagation a:nth-child(6){
 .footer .row{
     position: relative;
     width: 100%;
-
+    margin-bottom: 2rem;
     border: 0.1rem solid var(--bg-input-button);
 }
 .footer .links{
@@ -968,84 +968,6 @@ header .nagation a:nth-child(6){
     letter-spacing:0.2rem;
     margin-bottom: .5rem
 }
-
-/*ANIMATION RELOAD*/
-.animate{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-color);
-    z-index:98;
-}
-.logo .animate,
-.nagation .animate,
-.bars .animate,
-.home.show-animate .animate{
-    animation: showRight 2s ease forwards;
-    animation-delay: calc(.3s*var(--i));
-}
-
-.animate.scroll{
-    transition:2s ease;
-    transition-delay: calc(.3s/var(--i));
-    animation: none;
-}
-section:nth-child(odd) .animate.scroll,
-footer .animate.scroll{
-    background: var(--color-button);
-}
-
-.courses .sucess .heading h2 .animate.scroll,
-.courses .sucess .heading p .animate.scroll,
-.courses .sucess .row-sucess .animate.scroll{
-    background: var(--bg-button);
-}
-.courses .buttons-home .animate.scroll{
-    top: -0.5rem;
-    height: 120%;
-}
-.events .buttons-home .animate.scroll{
-    width: 108%;
-}
-.contact .textarea .animate.scroll{
-    top: -0.30rem;
-    left: -0.2rem;
-    height: 102%;
-    width: 100.90%;
-}
-header .nagation .animate{
-    top: -1rem;
-    height: 180%;
-}
-.home .img-bg .animate{
-    width: 109%;
-}
-.home  .content-secundary .animate{
-    height: 140%;
-    width: 102%;
-    top: -2rem;
-}
-.contact .img-bg .animate.scroll{
-    width: 140%;
-}
-.footer .row .animate.scroll{
-    width: 102%;
-    height: 102;
-    left: -2rem;
-}
-.about.show-animate .animate.scroll,
-.courses.show-animate .animate.scroll,
-.faculty.show-animate .animate.scroll,
-.events.show-animate .animate.scroll,
-.contact.show-animate .animate.scroll,
-.footer.show-animate .animate.scroll{
-    transition-delay: calc(.2s*var(--i));
-    width: 0;
-}
-
-
 
 /*BREAKPOINTS*/
 @media(max-width: 1200px){

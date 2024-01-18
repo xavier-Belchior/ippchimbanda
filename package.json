@@ -1,6 +1,13 @@
 {
-  "name": "ippchimbanda",  
+  "name": "ippchimbanda",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
   }
 }
