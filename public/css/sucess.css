@@ -1,0 +1,23 @@
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding: auto;
+}
+.sucessPage{
+    width:100%;
+    background:url(../img/success-background.svg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+    .sucessPage>div{
+        height:40rem;
+        flex:1;
+        display:flex;
+        justify-content:center;
+        align-items:center; 
+  
+        
+        background-size:cover;
+        background-position:center;
+    }

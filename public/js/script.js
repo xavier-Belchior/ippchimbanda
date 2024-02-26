@@ -33,14 +33,6 @@ window.onscroll = () => {
 
 }
 
-//button more-couses
-const btnCouses=document.querySelector('#btn')
-
-const courses=document.querySelector('.more-courses')
-btnCouses.addEventListener('click', ()=>{
-    courses.classList.toggle('active')
-    btnCouses.classList.remove('more-courses')
-})
 
 let btn= document.querySelector('.bars')
 let i=document.querySelector('.icon')
@@ -51,36 +43,20 @@ btn.addEventListener('click', ()=>{
     header.classList.toggle('active')
 
 })
-
-const controls=document.querySelectorAll('.control')
-const items=document.querySelectorAll('.item')
-let currentItem= 0;
-const maxItem= items.length;
-
-controls.forEach(control =>{
-    control.addEventListener('click', ()=>{
-        const btnLeft=control.classList.contains('btn-left')
-        if(btnLeft){
-            currentItem -= 1;
-
-        }else{
-         currentItem += 1;
-
-        }
-        if(currentItem >= maxItem){
-            currentItem =0;
-        }
-        if(currentItem < 0){
-             currentItem= maxItem -1;
-        }
-        items.forEach(item=>{
-            // item.classList.remove('current-item')
-            items[currentItem].scrollIntoView({
-                inline:'center',
-                behavior:'smooth'
-            })
-            // items[currentItem].classList.add('current-item')
-        })
-          console.log("clicked", btnLeft, currentItem, maxItem )
-    })
-})
+/*--galery order*/
+var mixer = mixitup('.portfolio-gallery');
+/*----swiper*/
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 50,
+    loop: true,
+    grabCursor:true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
