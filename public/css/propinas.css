@@ -1,0 +1,67 @@
+.propinas{
+    text-align: center;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    }
+.propinas>h2{
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.5rem;
+
+    color: var(--color-links);
+
+}
+.propinas>.wrapper-propina{
+    width: 100%; 
+
+}
+.propinas>.wrapper-propina>h3{
+    text-align: left;
+    font-size: 2rem;
+    color: var(--color-links);
+    line-height: 1.5;
+}
+.wrapper-propina>.box-propina{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+}
+.box-propina>.content-propina{
+    text-align: center;
+    padding: 1rem 0; 
+    margin: 1rem 0 1rem 2rem;
+    transition: shadow 0.5s;
+}
+.box-propina>.content-propina:hover{
+    box-shadow: 0 0 .5rem #774dd6;
+}
+.content-propina>i{
+    font-weight: 700;
+    line-height: 1.5;
+}
+.content-propina>h3{
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.content-propina>p{
+    display: flex;
+    justify-content: space-around;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.content-propina>p>span{
+    font-weight: 400;
+    color:#131313;
+}
+.content-propina>p>span strong{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-secondary-dark);
+}

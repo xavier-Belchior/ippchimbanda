@@ -99,9 +99,16 @@ header.sticky {
     position: relative;
 }
 
-header .logo img {
-    width: 15rem;
+/* .logo{
+    background:url(../img/users/logo.svg)center center, no-repeat;
+    width:40rem;
+    height:9rem;
+    background-size: cover;
     cursor: default;
+} */
+footer>.social-media>a>img{
+    width: 15rem;
+    cursor:default;
 }
 
 .nagation {
@@ -116,7 +123,7 @@ header .nagation a {
     opacity: 0.8;
     font-weight: 600;
     color: var(--color-text-main);
-    margin-left: 2.5rem;
+    margin-left: 1.8rem;
     transition: .3s;
 }
 
@@ -139,22 +146,13 @@ header .nagation form{
     border-radius:.4rem;
 }
 header .nagation form button{
-    width:10rem;
-    height:4rem;
-    
-    font-size:1.5rem;
-    font-weight:600;
-    color:#fff;    
-
+    width:8rem;
+    height:3rem;
+    font-size:1.3rem;  
     border-radius:.4rem;
-    background-color:var(--color-primary-dark);
     cursor: pointer;
-    opacity:0.8;
 }
-header .nagation form button:focus{
-    background:var(--color-primary-dark);
-    opacity:1;
-}
+
 /*section home*/
 .home {
     display: grid;
@@ -220,6 +218,12 @@ header .nagation form button:focus{
     animation-delay: 2s;
  
 
+}
+.lema{
+    font-size: 2rem;
+    line-height: 1.5;
+    letter-spacing: 1.5;
+    color: var(--color-links);
 }
 .home .content-secundary p {
     font-size: 1.5rem;
@@ -316,6 +320,7 @@ header .nagation form button:focus{
 
 /*section about*/
 .about {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -412,7 +417,7 @@ header .nagation form button:focus{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    background: var(--color-button);
+    background: var(--bg-color);
 
 }
 
@@ -426,7 +431,7 @@ header .nagation form button:focus{
 .card {
     position: relative;
     border-radius: 15px;
-    background: #d5d4e691;
+    background: #ffff;
     display: flex;
     flex-direction:column;
     grid-template-rows:1fr auto;
@@ -523,40 +528,78 @@ header .nagation form button:focus{
     padding-bottom: 8rem;
     display: flex;
     flex-direction: column;
-    background: var(--bg-color);
+    background: #ffff;
 }
 
-.row-events {
+.row-events,
+.row-equipa {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    padding: 2rem 0;
     gap: 2rem;
+    padding: 2rem 0;
+    
+   
+}
+@media (max-width:700px) {
+    .row-events,
+    .row-equipa{
+        display: grid;
+        grid-template-columns: repeat(1, 2fr);
+        grid-template-rows:  1fr;
+        padding: 2rem 0;
+       
+    }
 }
 
-.card-events {
+.card-events,
+.card-equipa{
     position: relative;
-    border-radius: 15px;
+    border-radius: .5rem;
     overflow: hidden;
     background: var(--color-button);
-    display: flex;
+    display: grid;
     grid-template-rows:1fr auto;
     align-items: center;
     border:2px solid var(--link-color);
     box-shadow: var(--neon-box-shadow);
+    
+
 }
-.card-img{
+.card-events:nth-child(n + 4){
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.card-events:nth-child(n + 4).active{
+    height: 100%;
+    visibility: visible;
+    opacity:1;
+}
+#btn-event.active{
+    display: none;
+}
+.card-img,
+.card-equipa>.card-img{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
     width: 100%;
 }
 .card-img>img{
-    height: 100%;
+    height:250px;
     width: 100%;
     transition: .5s;
+    background-size: contain;
 }
-.events-content{
+.card-equipa>.card-img>img{
+    height:70%;
+    width: 100%;
+    transition: .5s;
+    background-size: contain;
+}
+.events-content,
+.equipa-content{
     position:absolute;
     width:100%;
     height:100%;
@@ -566,19 +609,42 @@ header .nagation form button:focus{
     align-items:center;
     text-align:center;
     opacity:0;
-    background:linear-gradient(rgba(0, 0, 0, .2), #774dd6);
+    background:rgb(119, 77, 214, .5);
     transition:0.5s;
 
 }
-.card-events:hover>.events-content{
+.card-uniforme>.uniforme-content{
+    text-align:center;
+    border-radius: 0 0 .5rem .5rem;
+    background: var(--bg-button);
+}
+.uniforme-content>h3{
+    color: var(--color-button);
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    line-height: 2;
+}
+.equipa-content{
+    background:rgb(0, 0, 0, .5);
+}
+
+.equipa-content>strong{
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: #ccc;
+}
+.card-events:hover>.events-content,
+.card-equipa:hover>.equipa-content{
     opacity:1;
 }
-.card-events:hover .card-img img{
+.card-events:hover .card-img img,
+.card-equipa:hover .card-img img{
     transform:scale(1.1);
 }
 
-.events-content h3 {
-    font: 600 2.5rem poppins;
+.events-content h3,
+.equipa-content h3 {
+    font: 500 2.5rem poppins;
     line-height: 1.5;
     margin-top: 1rem;
     color:var(--color-button)
@@ -913,7 +979,12 @@ header .nagation form button:focus{
 } 
 
 @media(max-width:768px) {
-   
+    .row-contact .img-bg {
+        display: none;
+    }
+    .contact .row-contact {
+        grid-template-areas: "form form";
+    }
   
     .home .content-secundary p {
         font-size: 1.4rem;
@@ -1036,13 +1107,7 @@ header .nagation form button:focus{
 }
 
 @media(max-width:482px) {
-    .row-contact .img-bg {
-        display: none;
-    }
-
-    .contact .row-contact {
-        grid-template-areas: "form form";
-    }
+      
 
     .events-content h3 {
         font-size: 2rem;

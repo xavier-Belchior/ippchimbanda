@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/animation-curses.css">
     <link rel="stylesheet" href="css/testimonio.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/modais.css">
+    <link rel="stylesheet" href="css/propinas.css">
     <!-- swiper css -->
     <link rel="stylesheet" href="package/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
@@ -14,26 +17,43 @@
     <title>IPPC</title>
 </head>
 
-<body>
+<body class="body">
     <!--Header-->
     <header>
-        <a href="#" class="logo"><img src="img/logo.svg" alt="banner"></a>
+        <a href="#" class="logo"><img src="img/users/logo.svg" alt="logo do Chimbanda"></a>
         <div class="bars">
             <i class="fa fa-bars icon"></i>
         </div>
         <nav class="nagation">
             <div class="router">
                 <a href="#home" class="active">Home</a>
-                <a href="#about">Quem somos </a>
-                <a href="#courses">Cursos </a>
+                <a href="#about">Sobre</a>
+                <a href="#courses">Cursos</a>
+                <a href="#propinas">Propinas</a>
+                <a href="#uniforme">Uniformes</a>
                 <a href="#faculty">Professores</a>
                 <a href="#events">Eventos</a>
+                <a href="#equipa">Equipa</a>
                 <a href="#contact">Contacto</a>
                 <span class="active-navbar"></span>
             </div>
-            <form action="/logout?_method=DELETE" method="POST">
-                <button type="submit">Logout</button>
+
+            <div class="profile">
+                <img src="img/users/avatar.png" alt="foto do usario logado, com uma t-shert preta" class="img-profile">
+                <form action="/logout?_method=DELETE" method="POST" class="form-profile">
+                    
+                <div class="profile-content">
+                    <img src="img/users/avatar.png" alt="foto do usario logado, com uma t-shert preta" class="img-profile">
+                    <div class="users-content"> 
+                    <h3>{{name}}</h3>
+                    <span>{{email}}  <button type="submit">Sair</button></span>
+                    <strong><i class="fa fa-check-circle"></i>A conta está ativada</strong>
+                </div>
+                   
+                </div>
             </form>
+            </div>
+            
         </nav>
     </header>
     <section class="home width" id="home">
@@ -41,12 +61,11 @@
         <div class="content-secundary">
             <h1>Olá! <span style="color: #5638dc; font-weight: 700; font-size: 3rem;">{{name}}</span> ,encontre o futuro agora com...</h1>
             <div class="text-animate">
-                <h3>Instituto P.P Chimbanda</h3>
+                <h3>{{empresa.nome}}</h3>
             </div>
-            <p>No nosso site institucional, você encontrará
-                oportunidades excepcionais para impulsionar o seu crescimento pessoal e
-                profissional e Junte-se a nós e dê o primeiro passo em direção a um futuro brilhante e repleto de
-                realizações.... </p>
+            <h3 class="lema">{{empresa.lema}}</h3>
+
+            <p>{{empresa.sobre}}</p>
         </div>
 
         <div class="buttons-home">
@@ -56,7 +75,7 @@
         </div>
 
         <div class="img-bg">
-            <img src="img/Ilustra.png" alt="">
+            <img src="{{empresa.img}}" alt="">
 
         </div>
 
@@ -64,135 +83,244 @@
     <section class="about width" id="about">
         <div class="head-about width">
             <div class="box">
-                <span>958+</span>
-                <p>membros</p>
+                <span>{{empresaSobre.professores}}</span>
+                <p>Professores</p>
 
             </div>
             <div class="box">
-                <span>180+</span>
+                <span>{{empresaSobre.cursos}}</span>
                 <p>nossos cursos</p>
             </div>
             <div class="box">
-                <span>78+</span>
-                <p>projectos completados</p>
+                <span>+{{empresaSobre.estudantesFormados}}</span>
+                <p>Estudantes Formados</p>
             </div>
             <div class="box">
-                <span>10+</span>
-                <p>prémios</p>
+                <span>+{{empresaSobre.alunosAlbergar}}</span>
+                <p>Alunos-Albergados</p>
             </div>
 
         </div>
 
         <div class="about-main">
             <div class="about-img width">
-                <img src="img/imgabout2.png" alt="ippchimbanda">
+                <img src="{{empresaSobre.imgEmpresa}}" alt="foto do instituto Politecnico Privado Chimbanda">
 
             </div>
 
             <div class="about-content width">
-                <h3>Sobre Chimbanda </h3>
+                <h3>{{empresaSobre.sobreChimbanda}}</h3>
                 <p>
-                    Bem-vindo ao Chimbanda, que se dedica a fornecer uma educação excepcional e inspiradora para jovens
-                    no Lobito. Com um compromisso inabalável com a excelência acadêmica, inovação e atendimento
-                    individualizado, Nossa missão é cultivar
-                    mentes curiosas e preparar os alunos para um futuro repleto de realizações.
+                    {{empresaSobre.paragrafo}}
                 </p>
                 </p>
 
                 <div class="buttons-home">
-                    <a href="#" class="btn">Ler mais</a>
+                    <button class="btn" id="modal-about">Ler mais</button>
                 </div>
             </div>
+          </div>
+          <div class="modal-historia">
+            <div class="content-modal">
+                <i class="fa fa-close fa-3x" id="close-modal"></i>
+             <div class="modal-img">
+                <span>{{empresaSobre.modalNameSobre}}</span>
+             </div>
+           <div class="text-modal">
+            <p>{{empresaSobre.modalParagrafoSobre}}</p>
 
-        </div>
-        </div>
+           </div>
+                 
+            </div>
+         </div>
     </section>
-    <section class="portfolio" id="courses">
+    <section class="portfolio width" id="courses">
         <div class="main-text">
-            <span>O que eu faço por voçe</span>
+            <span>Nossos cursos</span>
             <h2>Ultimos Cursos</h2>
         </div>
-
-        <div class="container">
-            <div class="filter-buttons">
-                <button class="button" data-filter="all">All</button>
-                <button class="button" data-filter=".product">Product</button>
-                <button class="button" data-filter=".inter">Interacting</button>
-                <button class="button" data-filter=".web">Web App</button>
-            </div>
             <div class="portfolio-gallery">
-                <div class="port-box mix product">
+                <div class="port-box ">
                     <div class="port-image">
-                        <img src="img/1.jpg">
+                        <img src="{{CursoInformatico.img}}" alt="{{CursoInformatico.alt}}">
                     </div>
                     <div class="port-content">
-                        <h3>Informatica de Gestão</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="#"><i class="fa fa-external-link"></i></a>
+                        <h3>{{CursoInformatico.name}}</h3>
+                        <p>{{CursoInformatico.paragrafo}}</p>
+                        <a class="open-modal"><i class="fa fa-external-link" ></i></a>
+                    </div>
+                   
+                </div>
+
+                <div class="port-box ">
+                    <div class="port-image">
+                        <img src="{{CursoRecursos.img}}" alt="{{CursoRecursos.alt}}">
+                    </div>
+                    <div class="port-content">
+                        <h3>{{CursoRecursos.name}}</h3>
+                        <p>{{CursoRecursos.paragrafo}}</p>
+                        <a class="open-modal2"><i class="fa fa-external-link"></i></a>
                     </div>
                 </div>
 
-                <div class="port-box mix product">
+                <div class="port-box ">
                     <div class="port-image">
-                        <img src="img/2.jpg">
+                        <img src="{{CursoEmpresarial.img}}" alt="{{CursoEmpresarial.alt}}">
                     </div>
                     <div class="port-content">
-                        <h3>Recursos Humanos</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="port-box mix product">
-                    <div class="port-image">
-                        <img src="img/3.jpg">
-                    </div>
-                    <div class="port-content">
-                        <h3>Designer Grafico</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="port-box mix inter">
-                    <div class="port-image">
-                        <img src="img/4.jpg">
-                    </div>
-                    <div class="port-content">
-                        <h3>Empreendedorismo</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="port-box mix inter">
-                    <div class="port-image">
-                        <img src="img/5.jpg">
-                    </div>
-                    <div class="port-content">
-                        <h3>Contabilidade</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="#"><i class="fa fa-external-link"></i></a>
-                    </div>
-                </div>
-
-                <div class="port-box mix web">
-                    <div class="port-image">
-                        <img src="img/6.jpg">
-                    </div>
-                    <div class="port-content">
-                        <h3>Marketing</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="#"><i class="fa fa-external-link"></i></a>
+                        <h3>{{CursoEmpresarial.name}}</h3>
+                        <p>{{CursoEmpresarial.paragrafo}}</p>
+                        <a class="open-modal3"><i class="fa fa-external-link"></i></a>
                     </div>
                 </div>
             </div>
+    
+        <div class="modal-cursos">
+            <div class="content-modal">
+             <div class="modal-img">
+                <span>{{modalInformatico.name}}</span>
+             </div>
+           <div class="text-modal">
+            <h2>Saidas Profissionais</h2>
+            <ul class="porfile-out">
+                <li>{{modalInformatico.saidaOne}}</li>
+                <li>{{modalInformatico.saidaOne}}</li>
+                <li>{{modalInformatico.saidaTwo}}</li>
+                <li>{{modalInformatico.saidaThree}}</li>
+            </ul>
+                 <div class="buttons-home">
+                    <button class="btn-modal close-cursos">Fechar</button>
+                </div>
+           </div>
+                 
+            </div>
+         </div>
+         <div class="modal-cursos2">
+            <div class="content-modal">
+             <div class="modal-img">
+                <span>{{modalRecursos.name}}</span>
+             </div>
+           <div class="text-modal">
+            <h2>Saidas Profissionais</h2>
+            <ul class="porfile-out">
+                <li>{{modalRecursos.saidaOne}}</li>
+                <li>{{modalRecursos.saidaTwo}}</li>
+                <li>{{modalRecursos.saidaThree}}</li>
+                <li>{{modalRecursos.saidaFour}}</li>
+                <li>{{modalRecursos.saidaFive}}</li>
+               
+            </ul>
+                 <div class="buttons-home">
+                    <button class="btn-modal close-cursos2">Fechar</button>
+                </div>
+           </div>
+                 
+            </div>
+         </div>
+         <div class="modal-cursos3">
+            <div class="content-modal">
+             <div class="modal-img">
+                <span>{{modalEmpresarial.name}}</span>
+             </div>
+           <div class="text-modal">
+            <h2>Saidas Profissionais</h2>
+            <ul class="porfile-out">
+                <li>{{modalEmpresarial.saidaOne}}</li>
+                <li>{{modalEmpresarial.saidaTwo}}</li>
+                <li>{{modalEmpresarial.saidaThree}}</li>
+                <li>{{modalEmpresarial.saidaFour}}</li>
+            </ul>
+                 <div class="buttons-home">
+                    <button class="btn-modal close-cursos3">Fechar</button>
+                </div>
+           </div>
+                 
+            </div>
+         </div>
+    </section>
+    <section class="propinas width" id="propinas">
+        <div class="main-text">
+            <span>Confira as nossas propinas</span>
+            <h2>Propinas</h2>
+        </div>
+        <div class="wrapper-propina">
+            <h3><span class="class">10ª</span>-Classe</h3>
+            <div class="box-propina"> 
+
+                {%for propinaTenClasse in propinaTenClasses %}
+                    <div class="content-propina">
+                        <img src="{{propinaTenClasse.img}}" >
+                        <h3>{{propinaTenClasse.name}}</h3>
+                        <p>
+                            <span>Valor <strong>{{propinaTenClasse.valor}}KZ</strong></span>
+                            <span>Multa <strong>{{propinaTenClasse.multa}}KZ</strong></span>
+                        </p>
+                    </div>
+                {%endfor%}
+            </div>
+            <h3><span class="class">11ª</span>-Classe</h3>
+            <div class="box-propina"> 
+               {%for propinaElevenClasse in propinaElevenClasses %}
+                    <div class="content-propina">
+                        <img src="{{propinaElevenClasse.img}}" >
+                        <h3>{{propinaElevenClasse.name}}</h3>
+                        <p>
+                            <span>Valor <strong>{{propinaElevenClasse.valor}}KZ</strong></span>
+                            <span>Multa <strong>{{propinaElevenClasse.multa}}KZ</strong></span>
+                        </p>
+                    </div>
+                {%endfor%}
+            </div>
+            <h3><span class="class">12ª</span>-Classe</h3>
+            <div class="box-propina"> 
+                {%for propinaTwelveClasse in propinaTwelveClasses %}
+                    <div class="content-propina">
+                        <img src="{{propinaTwelveClasse.img}}" >
+                        <h3>{{propinaTwelveClasse.name}}</h3>
+                        <p>
+                            <span>Valor <strong>{{propinaTwelveClasse.valor}}KZ</strong></span>
+                            <span>Multa <strong>{{propinaTwelveClasse.multa}}KZ</strong></span>
+                        </p>
+                    </div>
+                {%endfor%}
+            </div>
+            <h3><span class="class">13ª</span>-Classe</h3>
+            <div class="box-propina"> 
+                {%for propinaThirteenClasse in propinaThirteenClasses %}
+                    <div class="content-propina">
+                     <img src="{{propinaThirteenClasse.img}}" >
+                        <h3>{{propinaThirteenClasse.name}}</h3>
+                        <p>
+                            <span>Valor <strong>{{propinaThirteenClasse.valor}}KZ</strong></span>
+                            <span>Multa <strong>{{propinaThirteenClasse.multa}}KZ</strong></span>
+                        </p>
+                    </div>
+                {%endfor%}
+            </div>
+    
+
+            
+        </div>
+    </section>
+    <section class="equipa " id="uniforme">
+        <div class="main-text">
+            <span>Confira os nossos uniformes escolar</span>
+            <h2>Nossos Uniformes </h2>
+
+        </div>
+        <div class="row-equipa">
+
+            {%for uniforme in uniformes%}
+                <div class="card-uniforme">
+                    <div class="card-img">
+                        <img src="{{uniforme.foto}}" alt="{{uniforme.alt}}">
+                    </div>
+                    <div class="uniforme-content">
+                        <h3>{{uniforme.name}}</h3>
+                    </div>
+                </div>
+            {%endfor%}
+            
         </div>
     </section>
     <!-- testimonio desig -->
@@ -205,29 +333,15 @@
         <div class="testimonio-wrapper">
             <div class="testimonio-box mySwiper">
                 <div class="testimonio-content swiper-wrapper">
-                    <div class="testimonio-slide swiper-slide">
-                        <img src="images/1.jpg" alt="first-testimonio">
-                        <h3>Jack Peterson</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, delectus. Mollitia quod, vero
-                            obcaecati hic maxime fuga excepturi aliquid dolore architecto quas debitis culpa sed id,
-                            sint officiis neque incidunt voluptatem .</p>
-                    </div>
+                    
+                    {%for testemunha in testemunhas %}
+                        <div class="testimonio-slide swiper-slide">
+                            <img src="{{testemunha.img}}" alt="{{testemunha.alt}}">
+                            <h3>{{testemunha.name}}</h3>
+                            <p>{{testemunha.paragrafo}}</p>
+                        </div>
 
-                    <div class="testimonio-slide swiper-slide">
-                        <img src="images/2.jpg" alt="first-testimonio">
-                        <h3>Marcos Mendoza</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, delectus. Mollitia quod, vero
-                            obcaecati hic maxime fuga excepturi aliquid dolore architecto quas debitis culpa sed id,
-                            sint officiis neque incidunt voluptatem .</p>
-                    </div>
-
-                    <div class="testimonio-slide swiper-slide">
-                        <img src="images/3.jpg" alt="first-testimonio">
-                        <h3>Pateicia Erick</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, delectus. Mollitia quod, vero
-                            obcaecati hic maxime fuga excepturi aliquid dolore architecto quas debitis culpa sed id,
-                            sint officiis neque incidunt voluptatem .</p>
-                    </div>
+                    {%endfor%}
                 </div>
 
                 <div class="swiper-button-next"></div>
@@ -277,51 +391,49 @@
 
         </div>
         <div class="row-events">
-            <div class="card-events">
-                <div class="card-img">
-                    <img src="img/events/baptism.png" alt="Freshman Baptism">
-                </div>
-                <div class="events-content">
-                    <h3>Batismo dos calouros</h3>
-                    <p>
-                        é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-                        sociedade.as
-                        contribuições dos professores na sociedade..
-                    </p>
-                </div>
-            </div>
-            <div class="card-events">
-                <div class="card-img">
-                    <img src="img/events/DayOfteachers.png" alt="Teachers' Day">
-                </div>
-                <div class="events-content">
-                    <h3>Dia do professore</h3>
-                    <p>
-                        é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-                        sociedade.as
-                        contribuições dos professores na sociedade..
-                    </p>
-                </div>
 
-            </div>
-            <div class="card-events">
-                <div class="card-img">
-                    <img src="img/events/prety.png" alt="Lesson 100">
+            {%for event in events%}
+                <div class="card-events">
+                    <div class="card-img">
+                        <img src="{{event.img}}" alt="{{event.alt}}">
+                    </div>
+                    <div class="events-content">
+                        <h3>{{event.name}}</h3>
+                        <p>
+                            {{event.paragrafo}}
+                        </p>
+                    </div>
                 </div>
-                <div class="events-content">
-                    <h3>Lição 100</h3>
-                    <p>
-                        é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-                        sociedade.as
-                        contribuições dos professores na sociedade..
-                    </p>
-                </div>
-            </div>
+            {%endfor%}
+            
+           
 
 
         </div>
         <div class="buttons-home">
-            <a href="#events" class="btn">Mais eventos </a>
+            <button class="btn" id="btn-event">Mais eventos </button>
+        </div>
+    </section>
+    <section class="equipa " id="equipa">
+        <div class="main-text">
+            <span>O nosso corpo administrativo</span>
+            <h2>Nossa Equipa </h2>
+
+        </div>
+        <div class="row-equipa">
+
+            {%for equip in equipa%}
+                <div class="card-equipa">
+                    <div class="card-img">
+                        <img src="{{equip.img}}" alt="{{equip.alt}}">
+                    </div>
+                    <div class="equipa-content">
+                        <h3>{{equip.name}}</h3>
+                        <strong>{{equip.sector}}</strong>
+                    </div>
+                </div>
+            {%endfor%}
+            
         </div>
     </section>
 
@@ -374,7 +486,7 @@
 
     <footer class="footer width">
         <div class="social-media">
-            <a href="#" class="logo"><img src="img/footer.svg" alt="banner"></a>
+            <a href="#" ><img src="img/users/logo.svg" alt="logo do Chimbanda"></a>
             <p>Copyright &copy;2023-2024 IPPChimbanda </p>
             <div class="networks">
                 <div>

@@ -20,6 +20,7 @@ export async function createTable() {
                 id INTEGER PRIMARY KEY, 
                 name TEXT,
                 email TEXT,
+                avatar TEXT,
                password TEXT
             );
             `
@@ -75,7 +76,7 @@ export async function deletContact(id) {
 /*Register*/
 export async function registeInsert(register) {
     return openDb().then(db => {
-        return db.run('INSERT INTO Register(name, email, password) VALUES (?,?,?)', [register.name, register.email, register.password])
+        return db.run('INSERT INTO Register(name, email, avatar, password) VALUES (?,?,?,?)', [register.name, register.email, register.avatar, register.password])
 
 
     })

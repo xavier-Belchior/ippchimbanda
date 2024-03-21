@@ -1,0 +1,26 @@
+//serch all datas of my database IPPCHIMBANDA
+server.get("/alldatas", async function (req, res) {
+        let teacher = await selectFaculty()
+        res.json(teacher)
+})
+//serch datas in the my database only with "id" IPPCHIMBANDA
+server.get('/save-chimbanda', async function (req, res) {
+        let teachers = await selectTeachers(req.body.id)
+        res.json(teachers)
+})
+
+//update the my database of IPPCHIMBANDA
+server.put('/save-chimbanda', function saveChimbanda(req, res) {
+        if (req.body && !req.body.id) {
+                res.json({
+                        "statucCode": "400",
+                        "msg": "Voce precisa informar um Id"
+                })
+        } else {
+                updateFaculty(req.body)
+                res.json({
+                        "statucCode": 200
+                })
+        }
+
+})

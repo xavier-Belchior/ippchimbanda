@@ -1,0 +1,146 @@
+/*---Modal history*/
+.modal-historia,
+.modal-cursos,
+.modal-cursos2,
+.modal-cursos3{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+   border-radius: .5rem;    
+    
+    inset: 0;
+    opacity: 0;
+
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out;
+    backdrop-filter: blur(10px);
+}
+
+/*---3 Modal cursos*/
+.modal-cursos,
+.modal-cursos2,
+.modal-cursos3{ 
+    backdrop-filter: blur(2px);
+    margin: auto;
+}
+
+
+.modal-historia.active,
+.modal-cursos.active,
+.modal-cursos2.active,
+.modal-cursos3.active{
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+
+.modal-historia>.content-modal,
+.modal-cursos>.content-modal,
+.modal-cursos2>.content-modal,
+.modal-cursos3>.content-modal{
+   width: 600px;
+    position: relative;
+    text-align: center;
+    margin: auto;
+     background: var(--bg-color);
+     border-radius: 0 0 .5rem .5rem;
+
+}
+.content-modal>i{
+    position: absolute;
+    top:0;
+    right: 0;
+    color: #fff;
+    cursor: pointer;
+}
+.content-modal>.modal-img{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    height: 250px;
+    background: url(../img/imgabout2.png) no-repeat center center/cover;
+}
+/*-- 3 Modal-cursos>e configurando o modal-img*/
+.modal-cursos>.content-modal>.modal-img{
+    background: url(../img/i.t.jpeg) no-repeat center center/cover;
+    backdrop-filter:blur(20px) ;
+}
+.modal-cursos2>.content-modal>.modal-img{
+    background: url(../img/r.h.jpeg) no-repeat center center/cover;
+    backdrop-filter:blur(20px) ;
+}
+.modal-cursos3>.content-modal>.modal-img{
+    background: url(../img/g.e.jpeg) no-repeat center center/cover;
+    backdrop-filter:blur(20px) ;
+}
+/*---3 Modal-cursos>e configurando o modal-content*/
+.modal-cursos>.content-modal,
+.modal-cursos2>.content-modal,
+.modal-cursos3>.content-modal{
+    background: #fff;
+}
+/*--Modal-cursos>e configurando os 3 modal-cursos > modal-text*/
+.modal-cursos>.content-modal>.text-modal>.porfile-out,
+.modal-cursos2>.content-modal>.text-modal>.porfile-out,
+.modal-cursos3>.content-modal>.text-modal>.porfile-out{
+    font-size: 1.5rem;
+    padding: 0 0 0 2rem;
+    margin: 0 0 1.2rem 1.2rem;
+}
+/*Configurando o btn nos 3 modal-cursos  */
+.modal-cursos>.content-modal>.text-modal>.buttons-home .btn-modal,
+.modal-cursos2>.content-modal>.text-modal>.buttons-home .btn-modal,
+.modal-cursos3>.content-modal>.text-modal>.buttons-home .btn-modal {
+    position: relative;
+
+    width: 8rem;
+    padding: 1rem;
+
+    background: #8257E5;
+    border-radius: .8rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-align: center;
+    cursor: pointer;
+}
+/*configurando os 3 modal-curso em btn*/
+.modal-cursos>.content-modal>.text-modal>.buttons-home .btn-modal:focus,
+.modal-cursos2>.content-modal>.text-modal>.buttons-home .btn-modal:focus,
+.modal-cursos3>.content-modal>.text-modal>.buttons-home .btn-modal:focus{
+    background: #774DD6;
+}
+
+.content-modal>.modal-img>span{
+    display: block;
+    text-align: bottom;
+
+    font-size:2rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #ffff;
+}
+.text-modal{
+    padding: 2rem;
+    text-align: justify;
+}
+.content-modal .text-modal >h2{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+
+}
+.text-modal >p{
+    font-size: 1.4rem;
+    line-height: 1.8;
+    font-weight: 400;
+}

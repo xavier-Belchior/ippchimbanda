@@ -21,6 +21,9 @@
 
 /*section portfolio*/
 
+.portfolio{
+    position: relative;
+}
 .filter-buttons{
     margin: 2rem;
     text-align: center;

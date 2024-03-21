@@ -241,16 +241,27 @@ main {
     text-decoration: underline;
 }
 
-//KEYFRAMES
+/*KEYFRAMES*/
 @media only screen and (max-width:870px) {
     html {
-        font-size: 50%;
+        font-size: 54%;
     }
 
     main {
         grid-template-columns: 1fr;
+        padding: 0 4%;
     }
-
+    .wrapper{
+        width: 100%;
+    }
+    .wrapper.active .form-box.login {
+        transform: translateX(-90rem);
+    }
+    
+    .wrapper .form-box.register {
+        transform: translateX(500rem);
+    
+    }
     .loginBanner {
         display: none;
     }

@@ -1,0 +1,91 @@
+.profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.2rem;
+}
+.profile>img {
+  display: block;
+  width: 3rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+}
+
+.profile .form-profile {
+  position: absolute;
+  top: 78%;
+  right:-2%;
+
+  background: #ffff;
+  box-shadow: 0 0 .5rem #fff;
+  border-radius: .5rem;
+  padding: 1.1rem;
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.5s ease-in-out;
+  z-index: 99;
+}
+.profile .form-profile.active {
+  opacity: 1;
+  visibility: visible;
+}
+.profile .form-profile .profile-content{
+    display: flex;
+    align-items: center;
+    border-radius: .8rem;
+}
+.profile-content> img{
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1.1rem;
+   
+}
+.profile-content>.users-content{
+    width: 100%;
+}
+
+.users-content>h3{
+    font-size:1.5rem ;
+    font-weight: 600;
+    letter-spacing: .3rem;
+    
+}
+.users-content>span{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .8rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: .1rem;
+  margin-bottom: 1.2rem;
+}
+.users-content>strong{
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #04BF58;
+}
+.users-content>strong i{
+  margin-right: .4rem;
+}
+.users-content>button{
+    padding: 0;
+    width: 7rem;
+  
+}
+form>.profile-content>.users-content button {
+  font-weight: 400;
+  color: #000;
+  border-radius: .4rem;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  opacity:1;
+  transition:border 0.5s ;
+  margin-right: 1rem;
+}
+form>.profile-content>.users-content button:hover{
+  border-color:  #131313;
+}
