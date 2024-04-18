@@ -17,7 +17,7 @@ export const empresa = [
     paragrafo: `Bem-vindo ao Chimbanda, que se dedica a fornecer uma educação excepcional e inspiradora para jovens
             no Lobito. Com um compromisso inabalável com a excelência acadêmica, inovação e atendimento
             individualizado.A nossa missão é formar profissionais competentes nas áres de Tecnologias, Administração e Serviços: homens capazes de exercer plenamente a cidadania .`,
-    imgEmpresa: "img/imgabout2.png",
+    imgEmpresa: "img/ippchimbanda.jpeg",
     modalNameSobre: "Instituto Politecnico Privado Chimbanda",
     modalParagrafoSobre: `O Instituto Politécnico Privado Chimbanda é uma instituição de ensinio vocacionado
     a leccionar cursos técnicos do I e II ciclo, está localizado na província de Benguela, Município do Lobito Bairro do alto 
@@ -82,19 +82,19 @@ export const modalCursos = [
 export const propinaTenClasses= [
   {
     name:"Tecnico de Informatica de Gestão",
-    valor:5500,
-    multa:1650,
+    valor:"5.500,00",
+    multa:"1.650,00",
     img:"img/icon-propinas/1.png"
 },  {
   name:"Tecnico de Gestão de Recursos Humanos",
-  valor:5500,
-  multa:1650,
+  valor:"5.500,00",
+  multa:"1.650,00",
   img:"img/icon-propinas/2.png"
 },
 {
   name:"Tecnico de Gestão Empresarial",
-  valor:5500,
-  multa:1650,
+  valor:"5.500,00",
+    multa:"1.650,00",
   img:"img/icon-propinas/3.png"
 },
 
@@ -103,20 +103,20 @@ export const propinaTenClasses= [
 export const propinaElevenClasses= [
   {
     name:"Tecnico de Informatica de Gestão",
-    valor:6000,
-    multa:1800,
+    valor:"6.000,00",
+    multa:"1.800,00",
     img:"img/icon-propinas/1.png"
 },  
 {
   name:"Tecnico de Gestão de Recursos Humanos",
-  valor:6000,
-  multa:1800,
+  valor:"6.000,00",
+  multa:"1.800,00",
   img:"img/icon-propinas/2.png"
 },
 {
   name:"Tecnico de Gestão Empresarial",
-  valor:6000,
-  multa:1800,
+  valor:"6.000,00",
+  multa:"1.800,00",
   img:"img/icon-propinas/3.png"
 },
 
@@ -124,19 +124,19 @@ export const propinaElevenClasses= [
 export const propinaTwelveClasses= [
   {
     name:"Tecnico de Informatica de Gestão",
-    valor:6500,
-    multa:1950,
+    valor:"6.500,00",
+    multa:"1.950,00",
     img:"img/icon-propinas/1.png"
 },  {
   name:"Tecnico de Gestão de Recursos Humanos",
-  valor:6500,
-  multa:1950,
+  valor:"6.500,00",
+  multa:"1.950,00",
   img:"img/icon-propinas/2.png"
 },
 {
   name:"Tecnico de Gestão Empresarial",
-  valor:6500,
-  multa:1950,
+  valor:"6.500,00",
+    multa:"1.950,00",
   img:"img/icon-propinas/3.png"
 },
 
@@ -144,36 +144,36 @@ export const propinaTwelveClasses= [
 export const propinaThirteenClasses= [
   {
     name:"Tecnico de Informatica de Gestão",
-    valor:7000,
-    multa:2100,
+    valor:"7.000,00",
+    multa:"2.100,00",
     img:"img/icon-propinas/1.png"
 },  {
   name:"Tecnico de Gestão de Recursos Humanos",
-  valor:7000,
-  multa:2100,
+  valor:"7.000,00",
+    multa:"2.100,00",
   img:"img/icon-propinas/2.png"
 },
 {
   name:"Tecnico de Gestão Empresarial",
-  valor:7000,
-  multa:2100,
+  valor:"7.000,00",
+    multa:"2.100,00",
   img:"img/icon-propinas/3.png"
 },
 
 ];
 export const uniformes=[
   {
-    name:"Masculino",
+    name:"Feminino",
     foto:"img/uniformes/f-blue.png",
     alt:"foto de uniforme feminino azul"
   },
   {
-    name:"Feminino",
+    name:"Masculino",
     foto:"img/uniformes/m-blue.png",
     alt:"foto de uniforme  masculino azul"
   },
   {
-    name:"Masculino",
+    name:"Feminino",
     foto:"img/uniformes/f-yellow.png",
     alt:"foto de uniforme feminino  amarelo"
   },
@@ -189,15 +189,15 @@ export const testemunhas=[
     paragrafo:`Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, delectus. Mollitia quod, vero
     obcaecati hic maxime fuga excepturi aliquid dolore architecto quas debitis culpa sed id,
     sint officiis neque incidunt voluptatem .`,
-    img:"team/1.jpg",
-    alt:"fotos de testemunhas"
+    img:"img/testemunhas/1.jpg",
+    alt:"foto de testemunha que ficaram satisfeitos com o ensino"
   },
   {
     name:"Ana Santos",
     paragrafo:`Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, delectus. Mollitia quod, vero
     obcaecati hic maxime fuga excepturi aliquid dolore architecto quas debitis culpa sed id,
     sint officiis neque incidunt voluptatem .`,
-    img:"team/2.jpg",
+    img:"img/testemunhas/1.jpg",
     alt:"fotos de testemunhas"
   },
   {
@@ -205,45 +205,45 @@ export const testemunhas=[
     paragrafo:`Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, delectus. Mollitia quod, vero
     obcaecati hic maxime fuga excepturi aliquid dolore architecto quas debitis culpa sed id,
     sint officiis neque incidunt voluptatem .`,
-    img:"team/3.jpg",
+    img:"img/testemunhas/1.jpg",
     alt:"fotos de testemunhas"
   }
 ]
 const facultys = [
   {
-    name: "Jose Melban",
-    img: "img/teachers/teacher06.jpg",
+    name: "Manuel Seka",
+    img: "img/teachers/teacherLingua.jpg",
     alt: "Jose Melban",
-    subject: "Ui design",
-    whatsapp: 956351406,
+    subject: "Lingua Portuguesa",
+    whatsapp: 949363830,
   },
   {
-    name: "Ana Milly",
-    img: "img/teachers/teacher03.jpg",
-    alt: "Ana Milly",
-    subject: "Marketing",
+    name: "Sambandi",
+    img: "img/teachers/direito.jpeg",
+    alt: "Sambandi",
+    subject: "Direito",
     whatsapp: 955195350,
   },
   {
-    name: "Diogo Billie",
-    img: "img/teachers/teacher04.jpg",
-    alt: "Diogo Billie",
-    subject: "Economy",
+    name: "Frederico Lucas",
+    img: "img/teachers/emprendedorismo.png",
+    alt: "Frederico Lucas",
+    subject: "Empreendedorismo",
     whatsapp: 955195350,
   },
   {
-    name: "Christopher Xavier",
-    img: "img/teachers/teacher05.jpg",
-    alt: "Christopher Xavier",
-    subject: "Design",
+    name: "Pinto Filipe",
+    img: "img/teachers/IAG.jpeg",
+    alt: "Pinto Filipe",
+    subject: "IAG",
     whatsapp: 955195350,
   },
   {
-    name: "Suzana Fell",
-    img: "img/teachers/teacher02.jpg",
-    alt: "Suzana Fell",
-    subject: "UX Design",
-    whatsapp: 955195350,
+    name: "Antunes Camate",
+    img: "img/teachers/matematica.jpeg",
+    alt: "Antunes Camate",
+    subject: "Matematica",
+    whatsapp: 946988684,
   },
   {
     name: "Jenny Mill",
@@ -257,76 +257,47 @@ export default facultys;
 export const events=[
   {
     name:"Batismo dos calouros",
+    img:"img/galeria/batismo-4.jpg",
+    alt:"foto de batismos dos calouros",
     paragrafo:`
-    é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-    sociedade.as
-    contribuições dos professores na sociedade.`,
-    img:"img/events/batismo.jpg",
-    alt:"foto de batismos dos calouros"
+    
+"Batismos dos calouros" é uma expressão que pode se referir a um evento ou ritual de iniciação realizado em muitas universidades ou faculdades...
+    `
   },
   {
-    name:"Cerimonia dos vinalistas",
-    paragrafo:`
-    é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-    sociedade.as
-    contribuições dos professores na sociedade.`,
+    name:"Cerimonia dos finalistas",
     img:"img/events/cerimoniafinalistas.jpg",
-    alt:"foto de cerimoniania dos finalistas"
+    alt:"foto de cerimoniania dos finalistas",
+    paragrafo:`
+        A "cerimônia dos finalistas" é um evento que marca a conclusão bem-sucedida dos estudos universitários por parte dos estudantes, que estão prestes a se formar...
+    `
   },
   {
     name:"Mediateca e Museu-Benguela",
-    paragrafo:`
-    é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-    sociedade.as
-    contribuições dos professores na sociedade.`,
-    img:"img/events/mediateca e museu.jpg",
-    alt:"foto de mediateca e museu de Benguela"
-  },
-  {
-    name:"Batismo dos calouros",
-    paragrafo:`
-    é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-    sociedade.as
-    contribuições dos professores na sociedade.`,
-    img:"img/events/batismo.jpg",
-    alt:"foto de batismos dos calouros"
-  },
-  {
-    name:"Cerimonia dos vinalistas",
-    paragrafo:`
-    é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-    sociedade.as
-    contribuições dos professores na sociedade.`,
-    img:"img/events/cerimoniafinalistas.jpg",
-    alt:"foto de cerimoniania dos finalistas"
-  },
-  {
-    name:"Mediateca e Museu-Benguela",
-    paragrafo:`
-    é um dia especial dedicado a homenagear e valorizar as contribuições dos professores na
-    sociedade.as
-    contribuições dos professores na sociedade.`,
-    img:"img/events/mediateca e museu.jpg",
-    alt:"foto de mediateca e museu de Benguela"
+    img:"img/events/mediateca-e-museu.jpg",
+    alt:"foto de mediateca e museu de Benguela",
+    paragrafo:`Quando uma escola leva os alunos para visitar um museu, isso é geralmente chamado de "excursão educacional" ou "passeio escolar"...
+    `
   }
+ 
 ]
 export const equipa=[
   {
     name:"Herculano Bunju",
     sector:"Chefe da Secretária",
-    img:"team/1.png",
+    img:"img/team/1.png",
     alt:"A foto do secretario da escola"
   },
   {
-    name:"Avelino Chimbanda",
+    name:"Avelino ",
     sector:"Director",
-    img:"team/2.png",
+    img:"img/team/2.png",
     alt:"A foto do director da escola"
   },
   {
-    name:"Frederico chingando Lucas",
+    name:"Frederico  Lucas",
     sector:"Subdirector Pedágogico",
-    img:"team/3.png",
+    img:"img/team/3.png",
     alt:"A foto do subdirector Pedágogico"
   }
 ]

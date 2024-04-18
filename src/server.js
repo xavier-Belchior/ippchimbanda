@@ -5,14 +5,13 @@ import {
   // updateFaculty,
   // selectFaculty,
   // selectTeachers,
-  deletContact,
+  // deletContact,
   registeInsert,
 } from "./database/person.js";
 createTable();
 
 // servidor
-import express from "express";
-const server = express();
+
 //ENDSERVER
 
 import facultys from "./database/datas.js";
@@ -42,6 +41,81 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default bcrypt;
+import express from "express";
+import http from 'http';
+
+
+const app = express();
+const server = http.createServer(app);
+
+
+// Restante do seu código...
+/*importando o socket.io*/
+
+import { Server } from 'socket.io';
+
+/*criando uma variavel que ira set os numeros de clientes no chat*/
+const socketsConnected=new Set()
+
+
+/*connectando o server socket.io na minha apliacação*/
+const io = new Server(server);
+
+io.on('connection',onConnection)
+
+function onConnection(socket){
+  console.log(socket.id);
+  socketsConnected.add(socket.id)
+
+  /*enviando numeros de clientes total para o cliente */
+  io.emit('clients-total',socketsConnected.size)
+
+  /*deletando os sockets.id quando um client se desconected*/
+  socket.on('disconnect', ()=>{
+    socketsConnected.delete(socket.id)
+  io.emit('clients-total',socketsConnected.size)
+  })
+  /*enviar mensagem exceto o cliente que envio nao ira receber*/
+  socket.on('message', (data)=>{
+    socket.broadcast.emit('chat-message', data)
+  })
+   /*when the user will be typing will appear one text/  and this code i puch to my or send to my chat or clients */
+   socket.on("feedback", (data) => {
+    socket.broadcast.emit("feedback", data)
+  })
+  
+  
+}
+/*Importando o nodemailer para enviar sms por email*/
+import nodemailer from 'nodemailer';
+
+// Configurar o transporte
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'xavierbelchior190@gmail.com',
+        pass: 'zdgt vihn monp hctu'
+    }
+});
+
+// Função para enviar e-mail
+function enviarEmail(destinatario, remetente, assunto, corpo) {
+    let mailOptions = {
+        from: destinatario,
+        to:remetente ,
+        subject: assunto,
+        text: corpo
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('E-mail enviado: ' + info.response);
+        }
+    });
+}
+
 
 initilize(
   passport,
@@ -49,31 +123,31 @@ initilize(
   (id) => users.find((user) => user.id === id)
 );
 
-server.use(cors());
+app.use(cors());
 
 //configurar nunjucks
 import nunjucks from "nunjucks";
 nunjucks.configure("src/views", {
-  express: server,
+  express: app,
   noCache: true,
 });
 
-server.use(flash());
-server.use(
+app.use(flash());
+app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false, //WE CAN RESAVE THE SESSION VARIABLE IF NOTHING IS CHANGED
     saveUninitialized: false,
   })
 );
-server.use(passport.initialize());
-server.use(passport.session());
-server.use(methodOverride("_method"));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride("_method"));
 
 const users = [];
 
 //receber os dados do req.body
-server
+app
   .use(express.json())
   .use(express.urlencoded({ extended: true }))
   //configurar arquivos estaticos(css, style, scripts, img, blogImg...)
@@ -82,6 +156,17 @@ server
 
 /*ENVIAR OS DADOS NO MEU SERVIDOR / IPPCHIMBANDA*/
 function saveChimbanda(req, res) {
+  const { name, number, subject, email, msg } = req.body;
+
+    // Construir o corpo do e-mail
+    const corpoEmail = `Nome: ${name}\nNumber: ${number}\nSubject: ${subject}\nEmail: ${email}\nMensagem: ${msg}`;
+
+    // Enviar e-mail
+    enviarEmail( 'xavierbelchior190@gmail.com', `Email:${email}`, 'Novo formulário submetido dos usuario da pagina', corpoEmail);
+
+    // Aqui você pode adicionar qualquer outra lógica necessária, como salvar os dados no banco de dados
+
+  console.log(req.body)
   insert(req.body);
 
   return res.redirect("/sucess");
@@ -90,10 +175,10 @@ function saveChimbanda(req, res) {
 // inicio e configuração do meu servidor
 
 //send my datas of formular of ippChimbanda to database
-server.post("/save-chimbanda", saveChimbanda);
+app.post("/save-chimbanda", saveChimbanda);
 
 //VERIFICAR SE A AUTENTIFICACAO FOI DO LOGIN FOI REALIZADA COM SUCESSO
-server.post(
+app.post(
   "/pagelogin",
   checkNotAuthenticate,
   passport.authenticate("local", {
@@ -103,7 +188,7 @@ server.post(
   })
 );
 /*ENVIAR OS DADOS NO MEU SERVIDOR / REGISTER E EMPURAR OS DADOS DO REGISTER PARA O MEU ARRAY USERS */
-server.post("/regist-save", checkNotAuthenticate, async (req, res) => {
+app.post("/regist-save", checkNotAuthenticate, async (req, res) => {
   registeInsert(req.body);
   try {
     const hashedPasswor = await bcrypt.hash(req.body.password, 10);
@@ -123,7 +208,7 @@ server.post("/regist-save", checkNotAuthenticate, async (req, res) => {
 });
 
 //roter main
-server.get("/", checkAuthenticate, (req, res) => {
+app.get("/", checkAuthenticate, (req, res) => {
   const data = req.body;
   const inspect = Object.keys(data).length != 0;
   if (inspect) {
@@ -153,35 +238,50 @@ server.get("/", checkAuthenticate, (req, res) => {
   });
 });
 //Roters de login
-server.get("/login", checkNotAuthenticate, (req, res) => {
+app.get("/login", checkNotAuthenticate, (req, res) => {
   return res.render("index.html");
 });
 //Roter de registro
-server.get("/register", checkNotAuthenticate, (req, res) => {
+app.get("/register", checkNotAuthenticate, (req, res) => {
   return res.render("index.html");
 });
 //Roter de sucesso do contacto do ippchimbanda
-server.get("/sucess", (req, res) => {
+app.get("/sucess", (req, res) => {
   return res.render("sucess-page.htm");
 });
 //Roters DESENVOLVIDOR
-server.get("/developer", (req, res) => {
+app.get("/developer", (req, res) => {
   return res.render("myBlog.html");
+});
+//Galery
+app.get("/galery", (req, res) => {
+  return res.render("galeria.html");
+});
+//Noticias
+app.get("/noticia", (req, res) => {
+  return res.render("noticias.html", {    empresa: empresa[0],});
+});
+//Noticias
+app.get("/adminitrador", (req, res) => {
+  return res.render("administrativa.html", {    empresa: empresa[0],});
+});
+app.get('/chat', (req, res) => {
+ return res.render('chat.html');
 });
 
 // //serch all datas of my database IPPCHIMBANDA
-// server.get("/alldatas", async function (req, res) {
+// app.get("/alldatas", async function (req, res) {
 //         let teacher = await selectFaculty()
 //         res.json(teacher)
 // })
 // //serch datas in the my database only with "id" IPPCHIMBANDA
-// server.get('/save-chimbanda', async function (req, res) {
+// app.get('/save-chimbanda', async function (req, res) {
 //         let teachers = await selectTeachers(req.body.id)
 //         res.json(teachers)
 // })
 
 // //update the my database of IPPCHIMBANDA
-// server.put('/save-chimbanda', function saveChimbanda(req, res) {
+// app.put('/save-chimbanda', function saveChimbanda(req, res) {
 //         if (req.body && !req.body.id) {
 //                 res.json({
 //                         "statucCode": "400",
@@ -196,12 +296,12 @@ server.get("/developer", (req, res) => {
 
 // })
 
-server.delete("/delet-contact", async function (req, res) {
+app.delete("/delet-contact", async function (req, res) {
   let delet = await deletContact(req.body.id);
   res.json(delet);
 });
 //roter do meu buttin de logout do meu site para sair da pagina
-server.delete("/logout", (req, res) => {
+app.delete("/logout", (req, res) => {
   req.logout(req.user, (err) => {
     if (err) return next(err);
     res.redirect("/login");
@@ -226,11 +326,11 @@ function checkNotAuthenticate(req, res, next) {
 server.listen(5500, () => console.log("server main rodando"));
 
 //INSERINDO O HTTPS PARA O MEU WEBSITE
-https
-  .createServer(
-    {
-      cert: fs.readFileSync("src/SSL/code.crt"),
-      key: fs.readFileSync("src/SSL/code.key"),
-    }.server
-  )
-  .listen(5501, () => console.log("rodando https"));
+// https
+//   .createServer(
+//     {
+//       cert: fs.readFileSync("src/SSL/code.crt"),
+//       key: fs.readFileSync("src/SSL/code.key"),
+//     }.server
+//   )
+//   .listen(5501, () => console.log("rodando https"));

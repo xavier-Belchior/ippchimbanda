@@ -27,7 +27,7 @@
         <nav class="nagation">
             <div class="router">
                 <a href="#home" class="active">Home</a>
-                <a href="#about">Sobre</a>
+                <a href="/galery" >Galeria</a>
                 <a href="#courses">Cursos</a>
                 <a href="#propinas">Propinas</a>
                 <a href="#uniforme">Uniformes</a>
@@ -39,14 +39,14 @@
             </div>
 
             <div class="profile">
-                <img src="img/users/avatar.png" alt="foto do usario logado, com uma t-shert preta" class="img-profile">
+                <i class="fa fa-user fa-3x img-profile"></i>
                 <form action="/logout?_method=DELETE" method="POST" class="form-profile">
                     
                 <div class="profile-content">
-                    <img src="img/users/avatar.png" alt="foto do usario logado, com uma t-shert preta" class="img-profile">
+                    <i class="fa fa-user fa-3x img-profile"></i>
                     <div class="users-content"> 
                     <h3>{{name}}</h3>
-                    <span>{{email}}  <button type="submit">Sair</button></span>
+                    <span>{{email}}  <button type="submit"><i class="fa fa-sign-out fa-2x "></i>Terminar-sessão</button></span>
                     <strong><i class="fa fa-check-circle"></i>A conta está ativada</strong>
                 </div>
                    
@@ -69,7 +69,7 @@
         </div>
 
         <div class="buttons-home">
-            <a href="/developer" class="btn"> Desenvolvidor</a>
+            <a href="/chat" class="btn"> iniciar Chat💬</a>
             <a href="#about" class="btn">Sobre nós</a>
 
         </div>
@@ -367,7 +367,7 @@
                     <span class="circle-img"></span>
                 </div>
                 <h3>{{faculty.name}}</h3>
-                <strong>UI Design</strong>
+                <strong>{{faculty.subject}}</strong>
                 <p class="star">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -398,10 +398,11 @@
                         <img src="{{event.img}}" alt="{{event.alt}}">
                     </div>
                     <div class="events-content">
-                        <h3>{{event.name}}</h3>
+                        <a href="/noticia"><h3>{{event.name}}</h3></a>
                         <p>
                             {{event.paragrafo}}
                         </p>
+
                     </div>
                 </div>
             {%endfor%}
@@ -410,9 +411,7 @@
 
 
         </div>
-        <div class="buttons-home">
-            <button class="btn" id="btn-event">Mais eventos </button>
-        </div>
+        
     </section>
     <section class="equipa " id="equipa">
         <div class="main-text">
@@ -441,7 +440,7 @@
     <section class="contact width" id="contact">
         <div class="main-text">
             <span>Mais de 15.00 pessoas conectadas</span>
-            <h2>Ours Contact</h2>
+            <h2>Contacta nos</h2>
 
         </div>
         <div class="row-contact">
@@ -451,28 +450,29 @@
             <form action="save-chimbanda" method="POST" id="form" class="fr">
                 <div class="box-main">
                     <div class="box-form">
-                        <input type="text" name="name" placeholder="first name">
+                        <input type="text" name="name" placeholder="Seu nome">
                         <span class="focus"></span>
                     </div>
                     <div class="box-form">
-                        <input type="text" name="lastName" placeholder="Last name" required>
+                        <input type="number" name="number" placeholder="Numero do telefone" required>
                         <span class="focus"></span>
                     </div>
+                   
                 </div>
                 <div class="box-main">
-                    <div class="box-form">
-                        <input type="number" name="number" placeholder="Number mobile" required>
+                     <div class="box-form">
+                        <input type="text" name="subject" placeholder="Assunto" required>
                         <span class="focus"></span>
                     </div>
                     <div class="box-form">
-                        <input type="email" name="email" placeholder="Email submit" required>
+                        <input type="email" name="email" placeholder="Email " >
                         <span class="focus"></span>
                     </div>
 
                 </div>
 
                 <div class="textarea">
-                    <textarea name="msg" id="msg" cols="32" rows="10" placeholder="Your mesage"></textarea>
+                    <textarea name="msg" id="msg" cols="32" rows="10" placeholder="Tua mensagem é muito importante pra nós"></textarea>
                     <span class="focus"></span>
                 </div>
 
@@ -484,54 +484,20 @@
         </div>
     </section>
 
-    <footer class="footer width">
-        <div class="social-media">
-            <a href="#" ><img src="img/users/logo.svg" alt="logo do Chimbanda"></a>
-            <p>Copyright &copy;2023-2024 IPPChimbanda </p>
-            <div class="networks">
-                <div>
-                    <a href="https://www.facebook.com/">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </div>
-                <div>
-                    <a href="https://www.linkedin.com/in/xavier-belchior-45483b283/">
-                        <i class="fa fa-linkedin-square"></i>
-                    </a>
-                </div>
-                <div>
-                    <a href="https://www.instagram.com/">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
+    <footer class="footer">
+        <a href="#" ><img src="img/users/logo.svg" alt="logo do Chimbanda"></a>
+        <div class="footer-text">
+            <p>Copyright &copy; 2023-2024 by ippChimbanda | Todos direitos reservados. </p>
         </div>
-        <div class="footer-row">
-            <div class="row">
-            </div>
-        </div>
-
-        <div class="links">
-            <ul class="media">
-                <a href="https://www.facebook.com/">Facebook.com</a>
-                <a href="https://www.youtobe.com/">Youtobe.com</a>
-                <a href="https://www.instagram.com/">Instagram.com</a>
-            </ul>
-            <ul class="media">
-                <a href="https://www.twuiter.com/">Twuiter.com</a>
-                <a href="https://www.googlr.com/">google.com</a>
-                <a href="https://www.discord.com/">Discord.com</a>
-            </ul>
-            <ul class="media">
-                <a href="https://www.linkedin.com/">linkedin.com</a>
-                <a href="https://www.dribble.com/">Dribble.com</a>
-                <a href="https://www.telegram.com/">telegram.com</a>
-            </ul>
+        <div class="footer-iconTop">
+            <a href="#"><i class="fa fa-arrow-circle-up"></i></a>
         </div>
     </footer>
+
     <!-- swiper js -->
     <script src="package/swiper-bundle.min.js"></script>
     <script src="js/mixitup.min.js"></script>
+    <script src="js/testemunhas.js"></script>
     <script src="js/script.js"></script>
 </body>
 

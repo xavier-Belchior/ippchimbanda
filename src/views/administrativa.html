@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!---ICONS FOR MY APP-->
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/administrador.css" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <title>App institution</title>
+  </head>
+
+  <body>
+    <header>
+    
+      <div class="header-nav">
+        <a href="#" class="logo"><img src="img/users/logo.svg" alt="logo do Chimbanda"></a>
+     
+
+        <div class="bars">
+          <i class="fa fa-bars"></i>
+        </div>
+      </div>
+      <div class="profile">
+        <i class="fa fa-user fa-3x img-profile"></i>
+        <form action="/logout?_method=DELETE" method="POST" class="form-profile">
+            
+        <div class="profile-content">
+            <i class="fa fa-user fa-3x img-profile"></i>
+            <div class="users-content"> 
+            <h3>Xavier</h3>
+            <span> <button type="submit"><i class="fa fa-sign-out fa-2x "></i>Terminar-sessão</button></span>
+            <strong><i class="fa fa-check-circle"></i>A conta está ativada</strong>
+        </div>
+           
+        </div>
+    </form>
+    </div>
+    </header>
+
+    <main class="filtro">
+      <div class="filtro-container">
+        <div class="filtro-content">
+          <table>
+            <tr>
+              <th>Nome</th>
+              <th>Classe</th>
+              <th>Disciplinas</th>
+              <th>Numero de processo</th>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Quimica</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Xavier</td>
+              <td>1ª-classe</td>
+              <td>Fisica</td>
+              <td>1123</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>Qeografia</td>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
